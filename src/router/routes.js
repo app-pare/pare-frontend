@@ -2,7 +2,8 @@ const routes = [
   {
     path: "/",
     component: () => import("layouts/MobileLayout.vue"),
-    children: [{ path: "", component: () => import("pages/IndexPage.vue") }],
+    // children: [{ path: "", component: () => import("pages/IndexPage.vue") }],
+    children: [{ path: "", component: () => import("pages/HomePage.vue") }],
   },
   {
     path: "/register",

@@ -1,5 +1,5 @@
 <template>
-  <q-page class="flex flex-center"> Registrar </q-page>
+  <q-page> Registrar </q-page>
 </template>
 
 <script>
