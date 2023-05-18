@@ -37,7 +37,7 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "IndexPage",
+  name: "HomePage",
   data() {
     return {
       email: "",
@@ -46,7 +46,7 @@ export default defineComponent({
   },
   methods: {
     submitForm() {
-      // Lógica para lidar com o envio do formulário
+      this.$router.push("/register");
     },
   },
 });
