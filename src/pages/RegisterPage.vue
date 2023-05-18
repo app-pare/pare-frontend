@@ -66,7 +66,7 @@ export default defineComponent({
   },
   methods: {
     submitForm() {
-      // Lógica para lidar com o envio do formulário
+      this.$router.push("/home/user");
     },
   },
 });
