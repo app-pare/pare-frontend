@@ -1,22 +1,22 @@
 const routes = [
   {
     path: "/",
-    component: () => import("layouts/MainLayout.vue"),
+    component: () => import("layouts/MobileLayout.vue"),
     children: [{ path: "", component: () => import("pages/IndexPage.vue") }],
   },
   {
     path: "/register",
-    component: () => import("layouts/MainLayout.vue"),
+    component: () => import("layouts/MobileLayout.vue"),
     children: [{ path: "", component: () => import("pages/RegisterPage.vue") }],
   },
   {
     path: "/home",
-    component: () => import("layouts/MainLayout.vue"),
+    component: () => import("layouts/MobileLayout.vue"),
     children: [{ path: "", component: () => import("pages/HomePage.vue") }],
   },
   {
     path: "/home",
-    component: () => import("layouts/MainLayout.vue"),
+    component: () => import("layouts/MobileLayout.vue"),
     children: [{ path: "", component: () => import("pages/HomePage.vue") }],
   },
   // Always leave this as last one,
