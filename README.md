@@ -1,6 +1,8 @@
 # Quasar App (pare-front-end)
 
-A Quasar Project
+A Quasar Project 
+
+[Protótipo Figma](https://www.figma.com/file/75RPKmTKF0yFbnQfZTT5MU/project_pare?type=design&node-id=8%3A71&t=5nqesUUxqlMz4iyV-1)
 
 ## Install the dependencies
 
