@@ -3,49 +3,48 @@
     <div class="q-pa-md">
       <div class="q-gutter-md">
         <div class="text-h6">
-          Bem-vindo(a) ao PARE, faça o login para continuar.
+          Bem-vindo(a) ao PARE, cadastre-se para continuar.
         </div>
         <div class="text-subtitle2">
-          Ainda não tem conta? Cadastre-se aqui. Leva menos de um minuto
+          Já tem uma conta? <u>Faça seu login</u>.
         </div>
       </div>
       <div class="q-gutter-md">
         <q-form @submit="submitForm">
+          <div class="input-header">Nome*</div>
           <q-input
+            rounded
             outlined
             v-model="email"
-            label="Nome*"
+            label="Digite seu nome"
             type="text"
-            placeholder="Digite seu nome"
           />
+          <div class="input-header">E-mail*</div>
           <q-input
+            rounded
             outlined
             v-model="email"
-            label="E-mail*"
+            label="Digite seu e-mail"
             type="email"
-            placeholder="Digite seu email"
           />
+          <div class="input-header">Senha*</div>
           <q-input
+            rounded
             outlined
             v-model="password"
-            label="Senha*"
+            label="Digite sua senha"
             type="password"
-            placeholder="Digite sua senha"
           />
+          <div class="input-header">Confirmação de senha*</div>
           <q-input
+            rounded
             outlined
             v-model="password"
-            label="Confirmação de senha*"
+            label="Confirme sua senha"
             type="password"
-            placeholder="Confirme sua senha"
           />
 
-          <q-btn
-            color="primary"
-            label="Cadastrar"
-            type="submit"
-            class="q-mt-md"
-          />
+          <q-btn label="Cadastrar" type="submit" class="btn-submit" />
         </q-form>
       </div>
     </div>
@@ -73,20 +72,46 @@ export default defineComponent({
 </script>
 
 <style scoped>
+
 .page-centered {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
 }
+
 .text-h6 {
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 130%;
+  /* or 23px */
+  color: #000000;
+  padding-inline-end: 20px;
 }
 
 .text-subtitle2 {
-  font-size: 0.875rem;
-  font-weight: 400;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 130%;
+  /* or 16px */
+  color: #000000;
+  padding-inline-end: 70px;
+}
+
+.input-header {
+  margin-top: 25px;
+  font-family: "Montserrat";
+  font-style: bold;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+  color: #000000;
+  margin-bottom: 5px;
 }
 
 .q-pa-md {
@@ -97,7 +122,12 @@ export default defineComponent({
   margin-bottom: 1rem;
 }
 
-.q-mt-md {
-  margin-top: 1rem;
+.btn-submit {
+  margin-top: 25px;
+  background-color: black;
+  color: white;
+  border-radius: 15px;
+  width: 100%;
+  padding: 16px 120px;
 }
 </style>
