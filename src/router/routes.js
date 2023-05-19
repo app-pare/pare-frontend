@@ -26,6 +26,13 @@ const routes = [
     component: () => import("layouts/MobileLayout.vue"),
     children: [{ path: "", component: () => import("pages/HomeUserPage.vue") }],
   },
+  {
+    path: "/home/user/flashcard",
+    component: () => import("layouts/MobileLayout.vue"),
+    children: [
+      { path: "", component: () => import("pages/FlashCardPage.vue") },
+    ],
+  },
   // Always leave this as last one,
   // but you can also remove it
   {
