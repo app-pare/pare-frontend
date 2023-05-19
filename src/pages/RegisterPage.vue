@@ -40,12 +40,7 @@
             placeholder="Confirme sua senha"
           />
 
-          <q-btn
-            color="primary"
-            label="Cadastrar"
-            type="submit"
-            class="q-mt-md"
-          />
+          <q-btn label="Cadastrar" type="submit" class="btn-submit" />
         </q-form>
       </div>
     </div>
@@ -97,7 +92,12 @@ export default defineComponent({
   margin-bottom: 1rem;
 }
 
-.q-mt-md {
-  margin-top: 1rem;
+.btn-submit {
+  margin-top: 25px;
+  background-color: black;
+  color: white;
+  border-radius: 15px;
+  width: 100%;
+  padding: 16px 120px;
 }
 </style>
