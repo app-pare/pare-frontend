@@ -6,22 +6,24 @@
           Bem-vindo(a) ao PARE, faça o login para continuar.
         </div>
         <div class="text-subtitle2">
-          Ainda não tem conta? Cadastre-se aqui. Leva menos de um minuto
+          Ainda não tem conta? <u>Cadastre-se aqui</u>. Leva menos de um minuto
         </div>
       </div>
       <div class="q-gutter-md">
         <q-form @submit="submitForm">
+          <div class="input-header">E-mail*</div>
           <q-input
             outlined
             v-model="email"
-            label="E-mail*"
+            label="Digite seu e-mail"
             type="email"
             placeholder="Digite seu email"
           />
+          <div class="input-header">Senha*</div>
           <q-input
             outlined
             v-model="password"
-            label="Senha*"
+            label="Digite sua senha"
             type="password"
             placeholder="Digite sua senha"
           />
@@ -53,6 +55,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap");
 .page-centered {
   display: flex;
   align-items: center;
@@ -60,13 +63,34 @@ export default defineComponent({
   height: 100vh;
 }
 .text-h6 {
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 130%;
+  /* or 23px */
+  color: #000000;
 }
 
 .text-subtitle2 {
-  font-size: 0.875rem;
-  font-weight: 400;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 130%;
+  /* or 16px */
+  color: #000000;
+}
+
+.input-header {
+  font-family: "Montserrat";
+  font-style: bold;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+
+  color: #000000;
 }
 
 .q-pa-md {
