@@ -1,13 +1,13 @@
 const routes = [
   {
     path: "/",
-    component: () => import("layouts/MobileLayout.vue"),
+    component: () => import("layouts/MainLayout.vue"),
     // children: [{ path: "", component: () => import("pages/IndexPage.vue") }],
     children: [{ path: "", component: () => import("pages/HomePage.vue") }],
   },
   {
     path: "/register",
-    component: () => import("layouts/MobileLayout.vue"),
+    component: () => import("layouts/MainLayout.vue"),
     children: [{ path: "", component: () => import("pages/RegisterPage.vue") }],
   },
   {
