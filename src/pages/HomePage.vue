@@ -55,7 +55,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap");
+
 .page-centered {
   display: flex;
   align-items: center;
