@@ -86,7 +86,7 @@ export default defineComponent({
   line-height: 130%;
   /* or 23px */
   color: #000000;
-  padding-inline-end: 30px;
+  padding-inline-end: 20px;
 }
 
 .text-subtitle2 {
