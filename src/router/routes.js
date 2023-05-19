@@ -4,15 +4,21 @@ const routes = [
     component: () => import("layouts/MainLayout.vue"),
     // children: [{ path: "", component: () => import("pages/IndexPage.vue") }],
     children: [{ path: "", component: () => import("pages/HomePage.vue") }],
+    meta: {
+      hiddenMenu: true,
+    },
   },
   {
     path: "/register",
     component: () => import("layouts/MainLayout.vue"),
     children: [{ path: "", component: () => import("pages/RegisterPage.vue") }],
+    meta: {
+      hiddenMenu: true,
+    },
   },
   {
     path: "/home",
-    component: () => import("layouts/MobileLayout.vue"),
+    component: () => import("layouts/MainLayout.vue"),
     children: [{ path: "", component: () => import("pages/HomePage.vue") }],
   },
   {
