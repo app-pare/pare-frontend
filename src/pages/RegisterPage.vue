@@ -5,7 +5,9 @@
         <div class="text-h6">
           Bem-vindo(a) ao PARE, cadastre-se para continuar.
         </div>
-        <div class="text-subtitle2">Já tem uma conta? Faça seu login.</div>
+        <div class="text-subtitle2">
+          Já tem uma conta? <u>Faça seu login</u>.
+        </div>
       </div>
       <div class="q-gutter-md">
         <q-form @submit="submitForm">
