@@ -9,10 +9,10 @@
         </q-row>
         <div class="home-buttons">
           <div class="button-item">
-            <button @click="criarColecao">+ Criar uma coleção</button>
+            <button @click="createCollection">+ Criar uma coleção</button>
           </div>
           <div class="button-item">
-            <button @click="criarFlashCard">+ Criar um Flash Card</button>
+            <button @click="createFlashCard">+ Criar um Flash Card</button>
           </div>
         </div>
       </div>
@@ -23,10 +23,11 @@
 <script>
 export default {
   methods: {
-    criarColecao() {
+    createCollection() {
+      this.$router.push("/home/user/collection");
       // Lógica para criar uma coleção
     },
-    criarFlashCard() {
+    createFlashCard() {
       // Lógica para criar um flash card
     },
   },

@@ -28,10 +28,10 @@ export default defineComponent({
       this.$router.push("/home");
     },
     goToClasses() {
-      this.$router.push("/register");
+      this.$router.push("/home/user/flashcard");
     },
     goToAdd() {
-      this.$router.push("/");
+      this.$router.push("/home/user/flashcard");
     },
     goToFavorites() {
       this.$router.push("/");
