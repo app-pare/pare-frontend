@@ -28,7 +28,7 @@
             type="password"
           />
           <q-btn label="Login" type="submit" class="btn-submit" />
-          <div class="q-mt-md">Esqueceu sua senha?</div>
+          <div class="q-mt-md"><a>Esqueceu sua senha?</a></div>
         </q-form>
       </div>
     </div>
@@ -65,12 +65,12 @@ export default defineComponent({
 .text-h6 {
   font-family: "Montserrat";
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 22px;
   line-height: 130%;
   /* or 23px */
   color: #000000;
-  width: 89%;
+  padding-inline-end: 30px;
 }
 
 .text-subtitle2 {
@@ -81,13 +81,14 @@ export default defineComponent({
   line-height: 130%;
   /* or 16px */
   color: #000000;
+  padding-inline-end: 70px;
 }
 
 .input-header {
   margin-top: 25px;
   font-family: "Montserrat";
   font-style: bold;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 14px;
   line-height: 17px;
   /* identical to box height */
@@ -97,10 +98,11 @@ export default defineComponent({
 
 .q-pa-md {
   padding: 1rem;
+  margin-top: 86px;
 }
 
 .q-gutter-md > * {
-  margin-bottom: 4rem;
+  margin-bottom: 38px;
 }
 
 .btn-submit {
