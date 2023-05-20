@@ -52,7 +52,7 @@ export default defineComponent({
   },
   methods: {
     submitForm() {
-      this.$router.push("/register");
+      this.$router.push("/home/user");
     },
   },
 });
