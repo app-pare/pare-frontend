@@ -25,10 +25,9 @@ export default {
   methods: {
     createCollection() {
       this.$router.push("/home/user/collection");
-      // Lógica para criar uma coleção
     },
     createFlashCard() {
-      // Lógica para criar um flash card
+      this.$router.push("/home/user/create/flashcard");
     },
   },
 };
