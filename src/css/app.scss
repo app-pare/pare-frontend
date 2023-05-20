@@ -1,1 +1,82 @@
-// app global css in SCSS form
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+p {
+  margin: 0;
+}
+
+html,
+body {
+  background: #fafafa;
+  min-height: 100vh;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  line-height: 130%;
+  color: $dark;
+}
+
+.full-height {
+  padding: 2rem 0;
+}
+
+.my-card {
+  height: 10em;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  margin: 1em 0;
+  padding: 2rem 2.3rem 2rem 2rem;
+  box-shadow: $box-shadow;
+  color: $secondary-dark;
+
+  & img {
+    height: 115px;
+    width: auto;
+    margin-left: auto;
+  }
+}
+
+.my-colections,
+.my-flashcads {
+  padding: 2rem 0;
+  margin: 0.5rem 0;
+  border-radius: 1rem;
+  box-shadow: $box-shadow;
+}
+
+.my-colections {
+  background: $primary;
+  color: $white;
+  font-weight: 700;
+  border-left: solid 5px $secondary-dark;
+}
+
+.my-flashcads {
+  background: $primary;
+  color: $white;
+  font-weight: 700;
+  border-right: solid 5px $secondary-dark;
+}
+
+// Botões
+
+.btn {
+  background-color: $secondary-dark;
+  color: $white;
+  font-weight: 600;
+  border-radius: 1rem;
+  padding: 1rem 0;
+  margin: 1.5rem 0;
+  box-shadow: $box-shadow;
+}
+
+.q-btn::before {
+  box-shadow: none;
+}
