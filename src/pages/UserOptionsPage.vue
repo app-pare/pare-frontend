@@ -23,3 +23,56 @@
     </div>
   </q-page>
 </template>
+
+<script>
+export default {
+  methods: {
+    createCollection() {
+      this.$router.push("/home/user/collection");
+    },
+    createFlashCard() {
+      this.$router.push("/home/user/create/flashcard");
+    },
+  },
+};
+</script>
+
+<style scoped>
+.page-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.q-gutter-md > * {
+  margin-bottom: 1rem;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-name {
+  margin-right: 0.5rem;
+}
+
+.user-icon {
+  margin-left: 0.5rem;
+}
+
+.home-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-item {
+  margin-bottom: 1rem;
+}
+
+.q-mt-md {
+  margin-top: 1rem;
+}
+</style>

@@ -25,19 +25,19 @@ export default defineComponent({
   name: "MobileLayout",
   methods: {
     goToHome() {
-      this.$router.push("/home");
+      this.$router.push("/home/user");
     },
     goToClasses() {
-      this.$router.push("/home/user/flashcard");
+      this.$router.push("/home/user/options");
     },
     goToAdd() {
-      this.$router.push("/home/user/flashcard");
+      this.$router.push("/home/user/options");
     },
     goToFavorites() {
-      this.$router.push("/");
+      this.$router.push("/home/user/options");
     },
     goToSearch() {
-      this.$router.push("/");
+      this.$router.push("/home/user/options");
     },
   },
 });

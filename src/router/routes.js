@@ -3,34 +3,22 @@ const routes = [
     path: "/",
     component: () => import("layouts/MainLayout.vue"),
     // children: [{ path: "", component: () => import("pages/IndexPage.vue") }],
-    children: [{ path: "", component: () => import("pages/HomePage.vue") }],
-    meta: {
-      hiddenMenu: true,
-    },
-  },
-  {
-    path: "/register",
-    component: () => import("layouts/MainLayout.vue"),
-    children: [{ path: "", component: () => import("pages/RegisterPage.vue") }],
-    meta: {
-      hiddenMenu: true,
-    },
-  },
-  {
-    path: "/home",
-    component: () => import("layouts/MainLayout.vue"),
-    children: [{ path: "", component: () => import("pages/HomePage.vue") }],
+    children: [
+      { path: "/", component: () => import("pages/LoginPage.vue") },
+      { path: "/login", component: () => import("pages/LoginPage.vue") },
+      { path: "/register", component: () => import("pages/RegisterPage.vue") },
+    ],
   },
   {
     path: "/home/user",
     component: () => import("layouts/MobileLayout.vue"),
-    children: [{ path: "", component: () => import("pages/HomeUserPage.vue") }],
+    children: [{ path: "", component: () => import("pages/HomePage.vue") }],
   },
   {
-    path: "/home/user/flashcard",
+    path: "/home/user/options",
     component: () => import("layouts/MobileLayout.vue"),
     children: [
-      { path: "", component: () => import("pages/FlashCardPage.vue") },
+      { path: "", component: () => import("pages/UserOptionsPage.vue") },
     ],
   },
   {
@@ -38,6 +26,13 @@ const routes = [
     component: () => import("layouts/MobileLayout.vue"),
     children: [
       { path: "", component: () => import("pages/CollectionPage.vue") },
+    ],
+  },
+  {
+    path: "/home/user/create/flashcard",
+    component: () => import("layouts/MobileLayout.vue"),
+    children: [
+      { path: "", component: () => import("src/pages/FlashCardPage.vue") },
     ],
   },
   // Always leave this as last one,
