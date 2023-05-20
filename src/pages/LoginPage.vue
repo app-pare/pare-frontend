@@ -2,37 +2,33 @@
   <q-page class="page-centered">
     <div class="q-pa-md">
       <div class="q-gutter-md">
-        <div class="text-h6">Novo FlashCard</div>
+        <div class="text-h6">
+          Bem-vindo(a) ao PARE, faça login para continuar.
+        </div>
+        <div class="text-subtitle2">
+          Ainda não tem conta? <u>Cadastre-se aqui</u>. Leva menos de um minuto
+        </div>
       </div>
       <div class="q-gutter-md">
         <q-form @submit="submitForm">
-          <div class="input-header">Pergunta</div>
+          <div class="input-header">E-mail*</div>
           <q-input
             rounded
             outlined
-            v-model="question"
-            label="Adicione uma pergunta"
-            type="textarea"
+            v-model="email"
+            label="Digite seu e-mail"
+            type="email"
           />
-          <div class="input-header">Resposta</div>
+          <div class="input-header">Senha*</div>
           <q-input
             rounded
             outlined
-            v-model="answer"
-            label="Adicione uma resposta"
-            type="textarea"
+            v-model="password"
+            label="Digite sua senha"
+            type="password"
           />
-          <div class="input-header">Categoria</div>
-          <q-select
-            rounded
-            outlined
-            color="teal"
-            v-model="option"
-            :options="options"
-            label="Label"
-          >
-          </q-select>
-          <q-btn label="Cadastrar flashcard" type="submit" class="btn-submit" />
+          <q-btn label="Login" type="submit" class="btn-submit" />
+          <div class="q-mt-md"><a>Esqueceu sua senha?</a></div>
         </q-form>
       </div>
     </div>
@@ -43,18 +39,16 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "RegisterPage",
+  name: "HomePage",
   data() {
     return {
-      question: "",
-      answer: "",
-      option: "",
-      options: ["Geral", "Faculdade", "Trabalho", "Concurso"],
+      email: "",
+      password: "",
     };
   },
   methods: {
     submitForm() {
-      this.$router.push("/home/user/flashcard");
+      this.$router.push("/register");
     },
   },
 });
@@ -67,7 +61,6 @@ export default defineComponent({
   justify-content: center;
   height: 100vh;
 }
-
 .text-h6 {
   font-family: "Montserrat";
   font-style: normal;
@@ -76,7 +69,7 @@ export default defineComponent({
   line-height: 130%;
   /* or 23px */
   color: #000000;
-  padding-inline-end: 20px;
+  padding-inline-end: 30px;
 }
 
 .text-subtitle2 {
@@ -104,10 +97,11 @@ export default defineComponent({
 
 .q-pa-md {
   padding: 1rem;
+  margin-top: 86px;
 }
 
 .q-gutter-md > * {
-  margin-bottom: 1rem;
+  margin-bottom: 38px;
 }
 
 .btn-submit {
@@ -117,5 +111,10 @@ export default defineComponent({
   border-radius: 15px;
   width: 100%;
   padding: 16px 120px;
+}
+.q-mt-md {
+  margin-top: 1rem;
+  width: 100%;
+  text-align: center;
 }
 </style>

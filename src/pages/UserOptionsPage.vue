@@ -4,31 +4,34 @@
       <div class="q-gutter-md">
         <q-row align="center">
           <q-col cols="auto" class="user-info">
-            <span class="user-name">Olá, Fulana!</span>
             <q-icon name="person" class="user-icon" />
-          </q-col>
-          <q-col cols="auto">
-            <button>Criar nova coleção</button>
           </q-col>
         </q-row>
         <div class="home-buttons">
           <div class="button-item">
-            <button>Meus Cards</button>
+            <button @click="createCollection">+ Criar uma coleção</button>
           </div>
           <div class="button-item">
-            <button>Estudar</button>
-          </div>
-          <div class="button-item">
-            <button>Revisar</button>
-          </div>
-          <div class="button-item">
-            <button>Convidar amigos</button>
+            <button @click="createFlashCard">+ Criar um Flash Card</button>
           </div>
         </div>
       </div>
     </div>
   </q-page>
 </template>
+
+<script>
+export default {
+  methods: {
+    createCollection() {
+      this.$router.push("/home/user/collection");
+    },
+    createFlashCard() {
+      this.$router.push("/home/user/create/flashcard");
+    },
+  },
+};
+</script>
 
 <style scoped>
 .page-centered {

@@ -2,35 +2,62 @@
   <q-page class="page-centered">
     <div class="q-pa-md">
       <div class="q-gutter-md">
-        <q-row align="center">
-          <q-col cols="auto" class="user-info">
-            <q-icon name="person" class="user-icon" />
-          </q-col>
-        </q-row>
-        <div class="home-buttons">
-          <div class="button-item">
-            <button @click="createCollection">+ Criar uma coleção</button>
-          </div>
-          <div class="button-item">
-            <button @click="createFlashCard">+ Criar um Flash Card</button>
-          </div>
-        </div>
+        <div class="text-h6">Novo FlashCard</div>
+      </div>
+      <div class="q-gutter-md">
+        <q-form @submit="submitForm">
+          <div class="input-header">Pergunta</div>
+          <q-input
+            rounded
+            outlined
+            v-model="question"
+            label="Adicione uma pergunta"
+            type="textarea"
+          />
+          <div class="input-header">Resposta</div>
+          <q-input
+            rounded
+            outlined
+            v-model="answer"
+            label="Adicione uma resposta"
+            type="textarea"
+          />
+          <div class="input-header">Categoria</div>
+          <q-select
+            rounded
+            outlined
+            color="teal"
+            v-model="option"
+            :options="options"
+            label="Label"
+          >
+          </q-select>
+          <q-btn label="Cadastrar flashcard" type="submit" class="btn-submit" />
+        </q-form>
       </div>
     </div>
   </q-page>
 </template>
 
 <script>
-export default {
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  name: "RegisterPage",
+  data() {
+    return {
+      question: "",
+      answer: "",
+      option: "",
+      options: ["Geral", "Faculdade", "Trabalho", "Concurso"],
+    };
+  },
   methods: {
-    createCollection() {
-      this.$router.push("/home/user/collection");
-    },
-    createFlashCard() {
-      this.$router.push("/home/user/create/flashcard");
+    submitForm() {
+      this.$router.push("/home/user/options");
     },
   },
-};
+});
 </script>
 
 <style scoped>
@@ -41,34 +68,54 @@ export default {
   height: 100vh;
 }
 
+.text-h6 {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 130%;
+  /* or 23px */
+  color: #000000;
+  padding-inline-end: 20px;
+}
+
+.text-subtitle2 {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 130%;
+  /* or 16px */
+  color: #000000;
+  padding-inline-end: 70px;
+}
+
+.input-header {
+  margin-top: 25px;
+  font-family: "Montserrat";
+  font-style: bold;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+  color: #000000;
+  margin-bottom: 5px;
+}
+
+.q-pa-md {
+  padding: 1rem;
+}
+
 .q-gutter-md > * {
   margin-bottom: 1rem;
 }
 
-.user-info {
-  display: flex;
-  align-items: center;
-}
-
-.user-name {
-  margin-right: 0.5rem;
-}
-
-.user-icon {
-  margin-left: 0.5rem;
-}
-
-.home-buttons {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.button-item {
-  margin-bottom: 1rem;
-}
-
-.q-mt-md {
-  margin-top: 1rem;
+.btn-submit {
+  margin-top: 25px;
+  background-color: black;
+  color: white;
+  border-radius: 15px;
+  width: 100%;
+  padding: 16px 120px;
 }
 </style>
