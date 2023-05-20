@@ -33,6 +33,13 @@ const routes = [
       { path: "", component: () => import("pages/FlashCardPage.vue") },
     ],
   },
+  {
+    path: "/home/user/collection",
+    component: () => import("layouts/MobileLayout.vue"),
+    children: [
+      { path: "", component: () => import("pages/CollectionPage.vue") },
+    ],
+  },
   // Always leave this as last one,
   // but you can also remove it
   {

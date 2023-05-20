@@ -3,30 +3,32 @@
     <div class="q-pa-md">
       <div class="q-gutter-md">
         <div class="text-h6">
-          Bem-vindo(a) ao PARE, faça o login para continuar.
+          Bem-vindo(a) ao PARE, faça login para continuar.
         </div>
         <div class="text-subtitle2">
-          Ainda não tem conta? Cadastre-se aqui. Leva menos de um minuto
+          Ainda não tem conta? <u>Cadastre-se aqui</u>. Leva menos de um minuto
         </div>
       </div>
       <div class="q-gutter-md">
         <q-form @submit="submitForm">
+          <div class="input-header">E-mail*</div>
           <q-input
+            rounded
             outlined
             v-model="email"
-            label="E-mail*"
+            label="Digite seu e-mail"
             type="email"
-            placeholder="Digite seu email"
           />
+          <div class="input-header">Senha*</div>
           <q-input
+            rounded
             outlined
             v-model="password"
-            label="Senha*"
+            label="Digite sua senha"
             type="password"
-            placeholder="Digite sua senha"
           />
-          <q-btn color="primary" label="Login" type="submit" class="q-mt-md" />
-          <div class="q-mt-md">Esqueceu sua senha?</div>
+          <q-btn label="Login" type="submit" class="btn-submit" />
+          <div class="q-mt-md"><a>Esqueceu sua senha?</a></div>
         </q-form>
       </div>
     </div>
@@ -53,6 +55,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
+
 .page-centered {
   display: flex;
   align-items: center;
@@ -60,24 +63,59 @@ export default defineComponent({
   height: 100vh;
 }
 .text-h6 {
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 130%;
+  /* or 23px */
+  color: #000000;
+  padding-inline-end: 30px;
 }
 
 .text-subtitle2 {
-  font-size: 0.875rem;
-  font-weight: 400;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 130%;
+  /* or 16px */
+  color: #000000;
+  padding-inline-end: 70px;
+}
+
+.input-header {
+  margin-top: 25px;
+  font-family: "Montserrat";
+  font-style: bold;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+  color: #000000;
+  margin-bottom: 5px;
 }
 
 .q-pa-md {
   padding: 1rem;
+  margin-top: 86px;
 }
 
 .q-gutter-md > * {
-  margin-bottom: 1rem;
+  margin-bottom: 38px;
 }
 
+.btn-submit {
+  margin-top: 25px;
+  background-color: black;
+  color: white;
+  border-radius: 15px;
+  width: 100%;
+  padding: 16px 120px;
+}
 .q-mt-md {
   margin-top: 1rem;
+  width: 100%;
+  text-align: center;
 }
 </style>
