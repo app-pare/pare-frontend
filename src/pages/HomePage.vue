@@ -1,5 +1,5 @@
 <template>
-  <q-page class="full-height">
+  <q-page class="full-height rounded-top">
     <div>
       <div class="row justify-center">
         <div class="col-10 col-xs-5 col-sm-5 col-md-4">

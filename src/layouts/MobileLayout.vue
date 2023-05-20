@@ -4,6 +4,10 @@
       <div class="router-view-container">
         <router-view />
       </div>
+      <!-- Header mobile -->
+      <q-toolbar class="header-mobile">
+        <q-toolbar-title class="text-center">Bem-vindo(a)!</q-toolbar-title>
+      </q-toolbar>
       <!-- Menu móvel -->
       <q-toolbar class="mobile-menu" flat>
         <div class="justify-between">
@@ -11,7 +15,7 @@
           <q-btn round dense flat icon="class" @click="goToClasses" />
           <q-btn round dense flat icon="add" @click="goToAdd" />
           <q-btn round dense flat icon="favorite" @click="goToFavorites" />
-          <q-btn round dense flat icon="search" @click="goToSearch" />
+          <q-btn round dense flat icon="person" @click="goToSearch" />
         </div>
       </q-toolbar>
     </q-page-container>
