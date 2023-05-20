@@ -53,7 +53,7 @@ body {
 }
 
 .my-colections {
-  background: $primary;
+  background: $secondary;
   color: $white;
   font-weight: 700;
   border-left: solid 5px $primary;
@@ -112,4 +112,24 @@ label {
 // Inputs
 .q-field--outlined.q-field--rounded .q-field__control {
   border-radius: 1rem;
+}
+
+// Menu
+
+.mobile-menu {
+  width: 100%;
+  background-color: $primary;
+  color: $white;
+  position: fixed;
+  bottom: 0;
+
+  & .justify-between {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.router-view-container {
+  margin-bottom: 3.5rem;
 }
