@@ -7,6 +7,7 @@
             <h6 class="text-h6">Nova coleção</h6>
           </div>
           <div class="q-gutter-md">
+            <div>Nome da coleção</div>
             <q-input
               filled
               dense
