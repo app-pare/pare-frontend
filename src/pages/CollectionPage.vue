@@ -34,9 +34,48 @@
             ></q-input>
             <div class="input-header">Cor</div>
             <div class="color-select">
-              <q-radio v-model="corSelecionada" val="cor1"> Cor 1 </q-radio>
-              <q-radio v-model="corSelecionada" val="cor2"> Cor 2 </q-radio>
-              <q-radio v-model="corSelecionada" val="cor3"> Cor 3 </q-radio>
+              <q-radio
+                keep-color
+                v-model="corSelecionada"
+                val="red"
+                color="red"
+              ></q-radio>
+              <q-radio
+                keep-color
+                v-model="corSelecionada"
+                val="pink"
+                color="pink"
+              ></q-radio>
+              <q-radio
+                keep-color
+                v-model="corSelecionada"
+                val="blue"
+                color="blue"
+              ></q-radio>
+              <q-radio
+                keep-color
+                v-model="corSelecionada"
+                val="purple"
+                color="purple"
+              ></q-radio>
+              <q-radio
+                keep-color
+                v-model="corSelecionada"
+                val="amber"
+                color="amber"
+              ></q-radio>
+              <q-radio
+                keep-color
+                v-model="corSelecionada"
+                val="cyan"
+                color="cyan"
+              ></q-radio>
+              <q-radio
+                keep-color
+                v-model="corSelecionada"
+                val="teal"
+                color="teal"
+              ></q-radio>
             </div>
             <q-btn class="btn-submit" type="submit" label="Cadastrar coleção" />
           </div>
@@ -67,7 +106,7 @@ export default {
 <style scoped>
 .page-centered {
   display: flex;
-  align-items: top;
+  align-items: center;
   justify-content: center;
   height: 100vh;
 }
@@ -93,21 +132,19 @@ export default {
   color: #000000;
 }
 
+.color-select {
+  justify-content: space-around;
+}
+
 .btn-submit {
   margin-top: 25px;
   background-color: #505050;
   color: white;
   border-radius: 15px;
   padding: 16px 75px;
-  gap: 10px;
 }
 
 .q-gutter-md {
   margin-top: 2rem;
-}
-
-.q-mb-md {
-  margin-bottom: 1rem;
-  margin-top: 83px;
 }
 </style>
