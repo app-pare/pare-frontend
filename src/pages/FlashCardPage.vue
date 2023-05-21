@@ -1,39 +1,43 @@
 <template>
-  <q-page class="page-centered">
-    <div class="q-pa-md">
-      <div class="q-gutter-md">
-        <div class="text-h6">Novo FlashCard</div>
-      </div>
-      <div class="q-gutter-md">
-        <q-form @submit="submitForm">
-          <div class="input-header">Pergunta</div>
-          <q-input
-            rounded
-            outlined
-            v-model="question"
-            label="Adicione uma pergunta"
-            type="textarea"
-          />
-          <div class="input-header">Resposta</div>
-          <q-input
-            rounded
-            outlined
-            v-model="answer"
-            label="Adicione uma resposta"
-            type="textarea"
-          />
-          <div class="input-header">Categoria</div>
-          <q-select
-            rounded
-            outlined
-            color="teal"
-            v-model="option"
-            :options="options"
-            label="Label"
-          >
-          </q-select>
-          <q-btn label="Cadastrar flashcard" type="submit" class="btn-submit" />
-        </q-form>
+  <q-page class="full-height">
+    <div class="row justify-center align-center">
+      <div class="col-10 col-xs-4 col-sm-4 col-md-3">
+        <h1>Novo FlashCard</h1>
+        <div>
+          <q-form @submit="submitForm">
+            <label>Pergunta</label>
+            <q-input
+              rounded
+              outlined
+              v-model="question"
+              label="Adicione uma pergunta"
+              type="textarea"
+            />
+            <label>Resposta</label>
+            <q-input
+              rounded
+              outlined
+              v-model="answer"
+              label="Adicione uma resposta"
+              type="textarea"
+            />
+            <label>Categoria</label>
+            <q-select
+              rounded
+              outlined
+              color="teal"
+              v-model="option"
+              :options="options"
+              label="Selecione..."
+            >
+            </q-select>
+            <q-btn
+              label="Cadastrar flashcard"
+              type="submit"
+              class="btn full-width"
+            />
+          </q-form>
+        </div>
       </div>
     </div>
   </q-page>
@@ -59,63 +63,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped>
-.page-centered {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
-.text-h6 {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 22px;
-  line-height: 130%;
-  /* or 23px */
-  color: #000000;
-  padding-inline-end: 20px;
-}
-
-.text-subtitle2 {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 130%;
-  /* or 16px */
-  color: #000000;
-  padding-inline-end: 70px;
-}
-
-.input-header {
-  margin-top: 25px;
-  font-family: "Montserrat";
-  font-style: bold;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 17px;
-  /* identical to box height */
-  color: #000000;
-  margin-bottom: 5px;
-}
-
-.q-pa-md {
-  padding: 1rem;
-}
-
-.q-gutter-md > * {
-  margin-bottom: 1rem;
-}
-
-.btn-submit {
-  margin-top: 25px;
-  background-color: black;
-  color: white;
-  border-radius: 15px;
-  width: 100%;
-  padding: 16px 120px;
-}
-</style>
