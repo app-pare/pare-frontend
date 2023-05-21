@@ -22,7 +22,7 @@ const routes = [
     ],
   },
   {
-    path: "/home/user/collection",
+    path: "/home/user/create/collection",
     component: () => import("layouts/MobileLayout.vue"),
     children: [
       { path: "", component: () => import("pages/CollectionPage.vue") },
