@@ -25,14 +25,20 @@ const routes = [
     path: "/home/user/create/collection",
     component: () => import("layouts/MobileLayout.vue"),
     children: [
-      { path: "", component: () => import("pages/CollectionPage.vue") },
+      {
+        path: "",
+        component: () => import("pages/CreateNewCollectionPage.vue"),
+      },
     ],
   },
   {
     path: "/home/user/create/flashcard",
     component: () => import("layouts/MobileLayout.vue"),
     children: [
-      { path: "", component: () => import("src/pages/FlashCardPage.vue") },
+      {
+        path: "",
+        component: () => import("pages/CreateNewFlashCardPage.vue"),
+      },
     ],
   },
   // Always leave this as last one,
