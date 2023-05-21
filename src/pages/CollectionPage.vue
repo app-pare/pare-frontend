@@ -4,83 +4,83 @@
       <div class="q-mb-md">
         <h6 class="text-h6">Nova coleção</h6>
       </div>
-      <div class="q-gutter-md">
-        <q-form @submit="submitForm">
-          <div class="q-gutter-md">
-            <div class="input-header">Nome da coleção</div>
-            <q-input
-              filled
-              dense
-              label="Nome da coleção"
-              v-model="nomeColecao"
-              autofocus
-            ></q-input>
-            <div class="input-header">Incluir flashcards</div>
-            <q-select
-              filled
-              dense
-              label="Incluir flashcards"
-              v-model="incluirFlashcards"
-            >
-              <q-option label="Opção 1" value="opcao1"></q-option>
-              <q-option label="Opção 2" value="opcao2"></q-option>
-            </q-select>
-            <div class="input-header">Data do exame (opcional)</div>
-            <q-input
-              filled
-              dense
-              label="Data do exame (opcional)"
-              v-model="dataExame"
-            ></q-input>
-            <div class="input-header">Cor</div>
-            <div class="color-select">
-              <q-radio
-                keep-color
-                v-model="corSelecionada"
-                val="red"
-                color="red"
-              ></q-radio>
-              <q-radio
-                keep-color
-                v-model="corSelecionada"
-                val="pink"
-                color="pink"
-              ></q-radio>
-              <q-radio
-                keep-color
-                v-model="corSelecionada"
-                val="blue"
-                color="blue"
-              ></q-radio>
-              <q-radio
-                keep-color
-                v-model="corSelecionada"
-                val="purple"
-                color="purple"
-              ></q-radio>
-              <q-radio
-                keep-color
-                v-model="corSelecionada"
-                val="amber"
-                color="amber"
-              ></q-radio>
-              <q-radio
-                keep-color
-                v-model="corSelecionada"
-                val="cyan"
-                color="cyan"
-              ></q-radio>
-              <q-radio
-                keep-color
-                v-model="corSelecionada"
-                val="teal"
-                color="teal"
-              ></q-radio>
-            </div>
-            <q-btn class="btn-submit" type="submit" label="Cadastrar coleção" />
+
+      <q-form @submit="submitForm">
+        <div class="q-gutter-md">
+          <div class="input-header">Nome da coleção</div>
+          <q-input
+            rounded
+            outlined
+            label="Nome da coleção"
+            v-model="nomeColecao"
+            autofocus
+          ></q-input>
+          <div class="input-header">Incluir flashcards</div>
+          <q-select
+            rounded
+            outlined
+            label="Incluir flashcards"
+            v-model="incluirFlashcards"
+          >
+            <q-option label="Opção 1" value="opcao1"></q-option>
+            <q-option label="Opção 2" value="opcao2"></q-option>
+          </q-select>
+          <div class="input-header">Data do exame (opcional)</div>
+          <q-input
+            rounded
+            outlined
+            type="date"
+            label="Data do exame (opcional)"
+            v-model="dataExame"
+          ></q-input>
+          <div class="input-header">Cor</div>
+          <div class="color-select">
+            <q-radio
+              keep-color
+              v-model="corSelecionada"
+              val="red"
+              color="red"
+            ></q-radio>
+            <q-radio
+              keep-color
+              v-model="corSelecionada"
+              val="pink"
+              color="pink"
+            ></q-radio>
+            <q-radio
+              keep-color
+              v-model="corSelecionada"
+              val="blue"
+              color="blue"
+            ></q-radio>
+            <q-radio
+              keep-color
+              v-model="corSelecionada"
+              val="purple"
+              color="purple"
+            ></q-radio>
+            <q-radio
+              keep-color
+              v-model="corSelecionada"
+              val="amber"
+              color="amber"
+            ></q-radio>
+            <q-radio
+              keep-color
+              v-model="corSelecionada"
+              val="cyan"
+              color="cyan"
+            ></q-radio>
+            <q-radio
+              keep-color
+              v-model="corSelecionada"
+              val="teal"
+              color="teal"
+            ></q-radio>
           </div>
-        </q-form>
-      </div>
+          <q-btn class="btn-submit" type="submit" label="Cadastrar coleção" />
+        </div>
+      </q-form>
     </div>
   </q-page>
 </template>
@@ -145,6 +145,6 @@ export default {
 }
 
 .q-gutter-md {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 </style>
