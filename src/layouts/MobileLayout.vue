@@ -4,14 +4,18 @@
       <div class="router-view-container">
         <router-view />
       </div>
+      <!-- Header mobile -->
+      <q-toolbar class="header-mobile">
+        <q-toolbar-title class="text-center">Bem-vindo(a)!</q-toolbar-title>
+      </q-toolbar>
       <!-- Menu móvel -->
       <q-toolbar class="mobile-menu" flat>
-        <div class="q-gutter-md justify-center">
+        <div class="justify-between">
           <q-btn round dense flat icon="home" @click="goToHome" />
           <q-btn round dense flat icon="class" @click="goToClasses" />
           <q-btn round dense flat icon="add" @click="goToAdd" />
           <q-btn round dense flat icon="favorite" @click="goToFavorites" />
-          <q-btn round dense flat icon="search" @click="goToSearch" />
+          <q-btn round dense flat icon="person" @click="goToSearch" />
         </div>
       </q-toolbar>
     </q-page-container>
@@ -28,7 +32,7 @@ export default defineComponent({
       this.$router.push("/home/user");
     },
     goToClasses() {
-      this.$router.push("/home/user/options");
+      this.$router.push("/home/user/study");
     },
     goToAdd() {
       this.$router.push("/home/user/options");
@@ -42,33 +46,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped>
-.mobile-menu {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #f5f5f5;
-  border-top: 1px solid #ccc;
-}
-
-.menu-toggle {
-  margin: 0 0.5rem;
-}
-
-.justify-center {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.router-view-container {
-  margin-bottom: 56px;
-}
-
-.q-btn--flat:focus,
-.q-btn--flat.q-focus-helper {
-  outline: none !important;
-}
-</style>

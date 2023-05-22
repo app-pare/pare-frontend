@@ -1,10 +1,6 @@
 <template>
-  <q-page class="page-centered">
-    <div class="q-pa-md">
-      <div class="q-mb-md">
-        <h6 class="text-h6">Nova coleção</h6>
-      </div>
-
+  <q-page class="full-height">
+    <div class="row justify-center">
       <q-form @submit="submitForm">
         <div class="q-gutter-md">
           <div class="input-header">Nome da coleção</div>
@@ -78,7 +74,14 @@
               color="teal"
             ></q-radio>
           </div>
-          <q-btn class="btn-submit" type="submit" label="Cadastrar coleção" />
+          <div>
+            <q-btn
+              type="submit"
+              color="primary"
+              label="Cadastrar coleção"
+              class="btn full-width"
+            />
+          </div>
         </div>
       </q-form>
     </div>

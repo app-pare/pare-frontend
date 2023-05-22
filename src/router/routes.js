@@ -15,6 +15,11 @@ const routes = [
     children: [{ path: "", component: () => import("pages/HomePage.vue") }],
   },
   {
+    path: "/home/user/study",
+    component: () => import("layouts/MobileLayout.vue"),
+    children: [{ path: "", component: () => import("pages/StudyPage.vue") }],
+  },
+  {
     path: "/home/user/options",
     component: () => import("layouts/MobileLayout.vue"),
     children: [
@@ -22,17 +27,23 @@ const routes = [
     ],
   },
   {
-    path: "/home/user/collection",
+    path: "/home/user/create/collection",
     component: () => import("layouts/MobileLayout.vue"),
     children: [
-      { path: "", component: () => import("pages/CollectionPage.vue") },
+      {
+        path: "",
+        component: () => import("pages/CreateNewCollectionPage.vue"),
+      },
     ],
   },
   {
     path: "/home/user/create/flashcard",
     component: () => import("layouts/MobileLayout.vue"),
     children: [
-      { path: "", component: () => import("src/pages/FlashCardPage.vue") },
+      {
+        path: "",
+        component: () => import("pages/CreateNewFlashCardPage.vue"),
+      },
     ],
   },
   {
