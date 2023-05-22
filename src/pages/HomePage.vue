@@ -6,8 +6,8 @@
           <q-btn
             icon="add"
             class="btn full-width"
-            label="Criar uma coleção"
-            @click="goToCreateCollection"
+            label="Nova coleção ou Flashcard"
+            @click="goToOptions"
           />
           <q-btn
             class="my-colections full-width"
@@ -43,8 +43,8 @@ import { defineComponent } from "vue";
 export default defineComponent({
   name: "HomePage",
   methods: {
-    goToCreateCollection() {
-      this.$router.push("/home/user/create/collection");
+    goToOptions() {
+      this.$router.push("/home/user/options");
     },
     goToCollections() {
       this.$router.push("/home/user/collection");
@@ -53,7 +53,7 @@ export default defineComponent({
       this.$router.push("/home/user/flashcards");
     },
     goToStudy() {
-      this.$router.push("/");
+      this.$router.push("/home/user/study");
     },
   },
 });

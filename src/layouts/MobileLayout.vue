@@ -32,7 +32,7 @@ export default defineComponent({
       this.$router.push("/home/user");
     },
     goToClasses() {
-      this.$router.push("/home/user/options");
+      this.$router.push("/home/user/study");
     },
     goToAdd() {
       this.$router.push("/home/user/options");
