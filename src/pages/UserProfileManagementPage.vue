@@ -1,14 +1,7 @@
 <template>
   <q-page class="page-centered">
     <div class="q-pa-md">
-      <div class="q-gutter-md">
-        <div class="text-h6">
-          Bem-vindo(a) ao PARE, cadastre-se para continuar.
-        </div>
-        <div class="text-subtitle2">
-          Já tem uma conta? <u>Faça seu login</u>.
-        </div>
-      </div>
+
       <div class="q-gutter-md">
         <q-form @submit="submitForm">
           <div class="input-header">Nome*</div>
@@ -27,24 +20,11 @@
             label="Digite seu e-mail"
             type="email"
           />
-          <div class="input-header">Senha*</div>
-          <q-input
-            rounded
-            outlined
-            v-model="password"
-            label="Digite sua senha"
-            type="password"
-          />
-          <div class="input-header">Confirmação de senha*</div>
-          <q-input
-            rounded
-            outlined
-            v-model="password"
-            label="Confirme sua senha"
-            type="password"
-          />
 
-          <q-btn label="Cadastrar" type="submit" class="btn-submit" />
+
+
+
+          <q-btn label="Salvar" type="submit" class="btn-submit" />
         </q-form>
       </div>
     </div>
@@ -55,7 +35,7 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "RegisterPage",
+  name: "UserProfileManagementPage",
   data() {
     return {
       name: "",
@@ -72,7 +52,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
 .page-centered {
   display: flex;
   align-items: center;
