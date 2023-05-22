@@ -123,18 +123,20 @@
 </template>
 
 <script>
-import { ref } from "vue";
-export default {
-  goToCreateCollection() {
-    this.$router.push("/home/user/create/collection");
-  },
-  goToCreateFlashCard() {
-    this.$router.push("/home/user/create/flashcard");
+import { ref, defineComponent } from "vue";
+export default defineComponent({
+  methods: {
+    goToCreateCollection() {
+      this.$router.push("/home/user/create/collection");
+    },
+    goToCreateFlashCard() {
+      this.$router.push("/home/user/create/flashcard");
+    },
   },
   setup() {
     return {
       slide: ref("style"),
     };
   },
-};
+});
 </script>
