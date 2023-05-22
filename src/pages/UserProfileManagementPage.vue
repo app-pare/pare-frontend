@@ -1,7 +1,7 @@
 <template>
-  <q-page class="page-centered">
-    <div class="q-pa-md">
-      <div class="q-gutter-md">
+  <q-page class="full-height">
+    <div class="row justify-center">
+      <div class="col-10 col-xs-4 col-sm-4 col-md-3">
         <q-form @submit="submitForm">
           <div class="input-header">Nome*</div>
           <q-input
@@ -49,33 +49,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped>
-.page-centered {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
-.input-header {
-  margin-top: 25px;
-  font-family: "Montserrat";
-  font-style: bold;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 17px;
-  /* identical to box height */
-  color: #000000;
-  margin-bottom: 5px;
-}
-
-.q-pa-md {
-  padding: 1rem;
-}
-
-.q-gutter-md > * {
-  margin-bottom: 1rem;
-  width: 19rem;
-}
-</style>
