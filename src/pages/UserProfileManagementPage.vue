@@ -1,14 +1,13 @@
 <template>
   <q-page class="page-centered">
     <div class="q-pa-md">
-
       <div class="q-gutter-md">
         <q-form @submit="submitForm">
           <div class="input-header">Nome*</div>
           <q-input
             rounded
             outlined
-            v-model="email"
+            v-model="name"
             label="Digite seu nome"
             type="text"
           />
@@ -21,10 +20,7 @@
             type="email"
           />
 
-
-
-
-          <q-btn label="Salvar" type="submit" class="btn-submit" />
+          <q-btn label="Salvar" type="submit" class="btn full-width" />
         </q-form>
       </div>
     </div>
@@ -40,8 +36,11 @@ export default defineComponent({
     return {
       name: "",
       email: "",
-      password: "",
     };
+  },
+  beforeMount() {
+    this.name = "Nome do backend";
+    this.email = "E-mail@dobackend.com";
   },
   methods: {
     submitForm() {
@@ -57,28 +56,6 @@ export default defineComponent({
   align-items: center;
   justify-content: center;
   height: 100vh;
-}
-
-.text-h6 {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 22px;
-  line-height: 130%;
-  /* or 23px */
-  color: #000000;
-  padding-inline-end: 20px;
-}
-
-.text-subtitle2 {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 130%;
-  /* or 16px */
-  color: #000000;
-  padding-inline-end: 70px;
 }
 
 .input-header {
@@ -99,14 +76,6 @@ export default defineComponent({
 
 .q-gutter-md > * {
   margin-bottom: 1rem;
-}
-
-.btn-submit {
-  margin-top: 25px;
-  background-color: black;
-  color: white;
-  border-radius: 15px;
-  width: 100%;
-  padding: 16px 120px;
+  width: 19rem;
 }
 </style>
