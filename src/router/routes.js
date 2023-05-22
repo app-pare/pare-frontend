@@ -15,6 +15,11 @@ const routes = [
     children: [{ path: "", component: () => import("pages/HomePage.vue") }],
   },
   {
+    path: "/home/user/study",
+    component: () => import("layouts/MobileLayout.vue"),
+    children: [{ path: "", component: () => import("pages/StudyPage.vue") }],
+  },
+  {
     path: "/home/user/options",
     component: () => import("layouts/MobileLayout.vue"),
     children: [
