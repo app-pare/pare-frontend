@@ -6,13 +6,13 @@
           <q-btn
             @click="createCollection"
             icon="add"
-            class="btn full-width"
+            class="btn btn-create full-width"
             label="Criar uma coleção"
           />
           <q-btn
             @click="createFlashCard"
             icon="add"
-            class="btn full-width"
+            class="btn btn-create full-width"
             label="Criar um flashcard"
           />
         </div>
@@ -22,7 +22,9 @@
 </template>
 
 <script>
-export default {
+import { defineComponent } from "vue";
+export default defineComponent({
+  name: "OptionsPage",
   methods: {
     createCollection() {
       this.$router.push("/home/user/create/collection");
@@ -31,5 +33,5 @@ export default {
       this.$router.push("/home/user/create/flashcard");
     },
   },
-};
+});
 </script>

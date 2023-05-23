@@ -9,16 +9,6 @@
             label="Nova coleção ou Flashcard"
             @click="goToOptions"
           />
-          <q-btn
-            class="my-colections full-width"
-            label="Minhas coleções"
-            @click="goToCollection"
-          />
-          <q-btn
-            class="my-flashcads full-width"
-            label="Meus flashcards"
-            @click="goToFlashcards"
-          />
           <q-card class="my-card" @click="goToStudy">
             <p class="text-h6">Estudar</p>
             <img src="../assets/Dictionary-pana.svg" />
@@ -45,12 +35,6 @@ export default defineComponent({
   methods: {
     goToOptions() {
       this.$router.push("/home/user/options");
-    },
-    goToCollections() {
-      this.$router.push("/home/user/collection");
-    },
-    goToFlashcards() {
-      this.$router.push("/home/user/flashcards");
     },
     goToStudy() {
       this.$router.push("/home/user/study");

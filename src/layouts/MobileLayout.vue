@@ -12,10 +12,9 @@
       <q-toolbar class="mobile-menu" flat>
         <div class="justify-between">
           <q-btn round dense flat icon="home" @click="goToHome" />
-          <q-btn round dense flat icon="class" @click="goToClasses" />
           <q-btn round dense flat icon="add" @click="goToAdd" />
-          <q-btn round dense flat icon="favorite" @click="goToFavorites" />
-          <q-btn round dense flat icon="person" @click="goToSearch" />
+          <q-btn round dense flat icon="class" @click="goToClasses" />
+          <q-btn round dense flat icon="person" @click="goToProfile" />
         </div>
       </q-toolbar>
     </q-page-container>
@@ -37,11 +36,8 @@ export default defineComponent({
     goToAdd() {
       this.$router.push("/home/user/options");
     },
-    goToFavorites() {
-      this.$router.push("/home/user/options");
-    },
-    goToSearch() {
-      this.$router.push("/home/user/options");
+    goToProfile() {
+      this.$router.push("/home/user/profile");
     },
   },
 });
