@@ -1,7 +1,7 @@
 <template>
-  <q-page class="full-height">
+  <q-page class="full-height padding">
     <div class="row justify-center">
-      <div class="col-10 col-xs-5 col-sm-5 col-md-4">
+      <div class="col-11 col-xs-5 col-sm-7 col-md-4">
         <label for="">Minhas Coleções</label>
         <q-btn
           icon="add"
@@ -9,111 +9,74 @@
           label="Criar uma coleção"
           @click="goToCreateCollection"
         />
-        <div class="q-pa-md">
+        <div>
           <q-carousel
-            v-model="slide"
+            v-model="slideCollection"
             transition-prev="slide-right"
             transition-next="slide-left"
             swipeable
             animated
-            control-color="amber"
-            navigation
-            padding
+            control-color="primary"
             arrows
-            height="300px"
-            class="shadow-2 rounded-borders"
+            height="165px"
+            infinite
           >
-            <q-carousel-slide :name="1" class="column no-wrap">
-              <div
-                class="row fit justify-start items-center q-gutter-xs q-col-gutter no-wrap"
-              >
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  src="https://cdn.quasar.dev/img/mountains.jpg"
-                />
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  src="https://cdn.quasar.dev/img/parallax1.jpg"
-                />
+            <q-carousel-slide name="collection01">
+              <div class="my-colections">
+                <h6>Primeira Coleção</h6>
+                <p>00 flashcards</p>
               </div>
             </q-carousel-slide>
-            <q-carousel-slide :name="2" class="column no-wrap">
-              <div
-                class="row fit justify-start items-center q-gutter-xs q-col-gutter no-wrap"
-              >
-                <q-img
-                  class="rounded-borders col-12 full-height"
-                  src="https://cdn.quasar.dev/img/parallax2.jpg"
-                />
+            <q-carousel-slide name="collection02">
+              <div class="my-colections">
+                <h6>Segunda Coleção</h6>
+                <p>00 flashcards</p>
               </div>
             </q-carousel-slide>
-            <q-carousel-slide :name="3" class="column no-wrap">
-              <div
-                class="row fit justify-start items-center q-gutter-xs q-col-gutter no-wrap"
-              >
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  src="https://cdn.quasar.dev/img/cat.jpg"
-                />
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  src="https://cdn.quasar.dev/img/linux-avatar.png"
-                />
-              </div>
-            </q-carousel-slide>
-            <q-carousel-slide :name="4" class="column no-wrap">
-              <div
-                class="row fit justify-start items-center q-gutter-xs q-col-gutter no-wrap"
-              >
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  src="https://cdn.quasar.dev/img/material.png"
-                />
-                <q-img
-                  class="rounded-borders col-6 full-height"
-                  src="https://cdn.quasar.dev/img/donuts.png"
-                />
+            <q-carousel-slide name="collection03">
+              <div class="my-colections">
+                <h6>Terceira Coleção</h6>
+                <p>00 flashcards</p>
               </div>
             </q-carousel-slide>
           </q-carousel>
         </div>
-
-        <label for="">Meus Flashcards</label>
-        <q-btn
-          @click="goToCreateFlashCard"
-          icon="add"
-          class="btn full-width"
-          label="Criar um flashcard"
-        />
-        <div>
+        <div class="container-my-flashcards">
+          <label for="">Meus Flashcards</label>
+          <q-btn
+            @click="goToCreateFlashCard"
+            icon="add"
+            class="btn full-width"
+            label="Criar um flashcard"
+          />
           <q-carousel
-            v-model="slide"
-            transition-prev="scale"
-            transition-next="scale"
+            v-model="slideFlashcard"
+            transition-prev="slide-right"
+            transition-next="slide-left"
             swipeable
             animated
-            control-color="white"
-            navigation
-            padding
+            control-color="primary"
             arrows
-            height="300px"
-            class="bg-primary text-white shadow-1 rounded-borders"
+            height="165px"
+            infinite
           >
-            <q-carousel-slide name="style" class="column no-wrap flex-center">
-              <q-icon name="style" size="56px" />
-              <div class="q-mt-md text-center">a</div>
+            <q-carousel-slide name="flashcard01">
+              <div class="my-colections">
+                <h6>Primeiro Flashcard</h6>
+                <p>Coleção:</p>
+              </div>
             </q-carousel-slide>
-            <q-carousel-slide name="tv" class="column no-wrap flex-center">
-              <q-icon name="live_tv" size="56px" />
-              <div class="q-mt-md text-center">b</div>
+            <q-carousel-slide name="flashcard02">
+              <div class="my-colections">
+                <h6>Segundo Flashcard</h6>
+                <p>Coleção:</p>
+              </div>
             </q-carousel-slide>
-            <q-carousel-slide name="layers" class="column no-wrap flex-center">
-              <q-icon name="layers" size="56px" />
-              <div class="q-mt-md text-center">c</div>
-            </q-carousel-slide>
-            <q-carousel-slide name="map" class="column no-wrap flex-center">
-              <q-icon name="terrain" size="56px" />
-              <div class="q-mt-md text-center">d</div>
+            <q-carousel-slide name="flashcard03">
+              <div class="my-colections">
+                <h6>Terceiro Flashcard</h6>
+                <p>Coleção:</p>
+              </div>
             </q-carousel-slide>
           </q-carousel>
         </div>
@@ -135,7 +98,8 @@ export default defineComponent({
   },
   setup() {
     return {
-      slide: ref("style"),
+      slideCollection: ref("collection01"),
+      slideFlashcard: ref("flashcard01"),
     };
   },
 });
