@@ -19,9 +19,7 @@ body {
   font-family: "Montserrat", sans-serif;
   line-height: 130%;
 }
-main {
-  min-height: 560px !important;
-}
+
 .full-height {
   display: grid;
   align-items: center;
@@ -122,6 +120,13 @@ main {
 
 .card-front {
   transform: rotateY(0deg);
+
+  & span {
+    width: 100%;
+    position: absolute;
+    bottom: 2rem;
+    color: $gray;
+  }
 }
 
 .card-back {
@@ -184,10 +189,30 @@ label {
 
 .btn-error {
   background-color: $negative;
+  width: 100%;
 }
 
 .btn-hit {
   background-color: $positive;
+  width: 100%;
+}
+
+.container-erro-e-acerto {
+  display: flex;
+}
+
+.btn-actions {
+  text-align: right;
+  margin: 1rem 0;
+  & .q-btn {
+    padding: 0;
+  }
+  & .edit-flashcard {
+    color: $primary;
+  }
+  & .delete-flashcard {
+    color: $negative;
+  }
 }
 
 // Inputs
