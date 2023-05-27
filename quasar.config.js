@@ -11,6 +11,8 @@
 const ESLintPlugin = require("eslint-webpack-plugin");
 
 const { configure } = require("quasar/wrappers");
+const DotEnv = require("dotenv");
+const webpack = require("webpack");
 
 module.exports = configure(function (ctx) {
   return {
@@ -71,6 +73,16 @@ module.exports = configure(function (ctx) {
           .plugin("eslint-webpack-plugin")
           .use(ESLintPlugin, [{ extensions: ["js", "vue"] }]);
       },
+
+      extendWebpack(cfg) {
+        // Carrega as variáveis de ambiente no ambiente de produção
+        DotEnv.config({ path: ".env" });
+        cfg.plugins.push(
+          new webpack.DefinePlugin({
+            "process.env": JSON.stringify(process.env),
+          })
+        );
+      },
     },
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-devServer
@@ -80,6 +92,10 @@ module.exports = configure(function (ctx) {
       },
       port: 8080,
       open: true, // opens browser window automatically
+      onBeforeSetupMiddleware(app) {
+        // Carrega as variáveis de ambiente no ambiente de desenvolvimento
+        DotEnv.config({ path: ".env" });
+      },
     },
 
     // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-framework
