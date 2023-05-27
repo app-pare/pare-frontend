@@ -47,6 +47,16 @@ const routes = [
     ],
   },
   {
+    path: "/home/user/flashcards",
+    component: () => import("layouts/MobileLayout.vue"),
+    children: [
+      {
+        path: "",
+        component: () => import("pages/FlashcardsPage.vue"),
+      },
+    ],
+  },
+  {
     path: "/home/user/profile",
     component: () => import("layouts/MobileLayout.vue"),
     children: [

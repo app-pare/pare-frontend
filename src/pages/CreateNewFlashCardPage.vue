@@ -1,8 +1,7 @@
 <template>
-  <q-page class="full-height">
+  <q-page class="full-height padding">
     <div class="row justify-center align-center">
       <div class="col-10 col-xs-4 col-sm-4 col-md-3">
-        <h1>Novo FlashCard</h1>
         <div>
           <q-form @submit="submitForm">
             <label>Pergunta</label>

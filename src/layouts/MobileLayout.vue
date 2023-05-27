@@ -1,13 +1,13 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-page-container>
-      <div class="router-view-container">
-        <router-view />
-      </div>
       <!-- Header mobile -->
       <q-toolbar class="header-mobile">
         <q-toolbar-title class="text-center">Bem-vindo(a)!</q-toolbar-title>
       </q-toolbar>
+      <div class="router-view-container">
+        <router-view />
+      </div>
       <!-- Menu móvel -->
       <q-toolbar class="mobile-menu" flat>
         <div class="justify-between">
