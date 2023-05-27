@@ -104,7 +104,6 @@ export default defineComponent({
       const collectionAPI = new CollectionAPI();
       const response = await collectionAPI.getCollections();
       const collections = await response.json();
-      console.log(collections);
       this.options = collections.map((collection) => ({
         label: collection.name,
         value: collection.id,
