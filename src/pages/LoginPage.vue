@@ -18,9 +18,10 @@
             <q-input
               rounded
               outlined
-              v-model="email"
+              v-model="username"
               label="Digite seu e-mail"
               type="email"
+              required
             />
             <label class="input-header">Senha<span>*</span></label>
             <q-input
@@ -29,6 +30,7 @@
               v-model="password"
               label="Digite sua senha"
               type="password"
+              required
             />
             <q-btn label="Login" type="submit" class="btn full-width" />
             <div class="text-center"><a>Esqueceu sua senha?</a></div>
@@ -40,19 +42,35 @@
 </template>
 
 <script>
+import UserAPI from "src/services/resources/UserAPI";
 import { defineComponent } from "vue";
+import { Notify } from "quasar";
 
 export default defineComponent({
   name: "HomePage",
   data() {
     return {
-      email: "",
-      password: "",
+      username: "darkson@gmail.com",
+      password: "123456789",
     };
   },
   methods: {
-    submitForm() {
-      this.$router.push("/home/user");
+    async submitForm() {
+      const userAPI = new UserAPI();
+      const response = await userAPI.loginByUsernameAndPass({
+        username: this.username,
+        password: this.password,
+      });
+      if (response.status === 200) {
+        this.$router.push("/home/user");
+      } else {
+        Notify.create({
+          message: "Dados inválidos.",
+          position: "top-right",
+          color: "negative",
+          timeout: 2000,
+        });
+      }
     },
   },
 });

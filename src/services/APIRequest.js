@@ -1,13 +1,12 @@
-class APIRequest {
-  constructor(apiUrl) {
+export default class APIRequest {
+  constructor(apiUrl = process.env.API) {
     this.apiUrl = apiUrl;
   }
 
   async get(endpoint) {
     try {
       const response = await fetch(`${this.apiUrl}/${endpoint}`);
-      const data = await response.json();
-      return data;
+      return response;
     } catch (error) {
       console.error("Error:", error);
       throw error;
@@ -23,8 +22,7 @@ class APIRequest {
         },
         body: JSON.stringify(body),
       });
-      const data = await response.json();
-      return data;
+      return response;
     } catch (error) {
       console.error("Error:", error);
       throw error;
@@ -40,8 +38,7 @@ class APIRequest {
         },
         body: JSON.stringify(body),
       });
-      const data = await response.json();
-      return data;
+      return response;
     } catch (error) {
       console.error("Error:", error);
       throw error;
@@ -53,8 +50,7 @@ class APIRequest {
       const response = await fetch(`${this.apiUrl}/${endpoint}`, {
         method: "DELETE",
       });
-      const data = await response.json();
-      return data;
+      return response;
     } catch (error) {
       console.error("Error:", error);
       throw error;

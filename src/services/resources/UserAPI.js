@@ -1,7 +1,19 @@
-class UserAPI {
+import APIRequest from "../APIRequest";
+
+export default class UserAPI {
   constructor(apiUrl) {
     this.apiUrl = apiUrl;
     this.api = new APIRequest(apiUrl);
+  }
+
+  async loginByUsernameAndPass(usernameAndPassword) {
+    try {
+      const response = await this.api.post("login", usernameAndPassword);
+      return response;
+    } catch (error) {
+      console.error("Error:", error);
+      throw error;
+    }
   }
 
   async getUsers() {
