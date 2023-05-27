@@ -57,8 +57,8 @@ export default defineComponent({
   name: "RegisterPage",
   data() {
     return {
-      question: "p1",
-      answer: "R1",
+      question: "",
+      answer: "",
       option: [{ label: "Geral", value: 1, checked: true }],
       options: [],
     };
