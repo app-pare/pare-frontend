@@ -1,4 +1,6 @@
-class CollectionAPI {
+import APIRequest from "../APIRequest";
+
+export default class CollectionAPI {
   constructor(apiUrl) {
     this.apiUrl = apiUrl;
     this.api = new APIRequest(apiUrl);

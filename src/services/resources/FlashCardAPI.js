@@ -1,4 +1,6 @@
-class FlashcardAPI {
+import APIRequest from "../APIRequest";
+
+export default class FlashcardAPI {
   constructor(apiUrl) {
     this.apiUrl = apiUrl;
     this.api = new APIRequest(apiUrl);

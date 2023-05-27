@@ -1,4 +1,6 @@
-class FlashcardFlashCardCollectionAPI {
+import APIRequest from "../APIRequest";
+
+export default class CollectionFlashCardAPI {
   constructor(apiUrl) {
     this.apiUrl = apiUrl;
     this.api = new APIRequest(apiUrl);
@@ -7,7 +9,7 @@ class FlashcardFlashCardCollectionAPI {
   async getFlashCardFlashCardCollections() {
     try {
       const flashcards_collections = await this.api.get(
-        "flashcards_collections"
+        "collections/flashcards"
       );
       return flashcards_collections;
     } catch (error) {
@@ -19,7 +21,7 @@ class FlashcardFlashCardCollectionAPI {
   async getFlashCardCollection(collectionId) {
     try {
       const collection = await this.api.get(
-        `flashcards_collections/${collectionId}`
+        `collections/flashcards/${collectionId}`
       );
       return collection;
     } catch (error) {
@@ -31,7 +33,7 @@ class FlashcardFlashCardCollectionAPI {
   async createFlashCardCollection(collection) {
     try {
       const createdFlashCardCollection = await this.api.post(
-        "flashcards_collections",
+        "collections/flashcards",
         collection
       );
       return createdFlashCardCollection;
@@ -44,7 +46,7 @@ class FlashcardFlashCardCollectionAPI {
   async updateFlashCardCollection(collectionId, collection) {
     try {
       const updatedFlashCardCollection = await this.api.put(
-        `flashcards_collections/${collectionId}`,
+        `collections/flashcards/${collectionId}`,
         collection
       );
       return updatedFlashCardCollection;
@@ -57,7 +59,7 @@ class FlashcardFlashCardCollectionAPI {
   async deleteFlashCardCollection(collectionId) {
     try {
       const deletedFlashCardCollection = await this.api.delete(
-        `flashcards_collections/${collectionId}`
+        `collections/flashcards/${collectionId}`
       );
       return deletedFlashCardCollection;
     } catch (error) {

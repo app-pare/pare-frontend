@@ -11,6 +11,7 @@
               v-model="question"
               label="Adicione uma pergunta"
               type="textarea"
+              required
             />
             <label>Resposta</label>
             <q-input
@@ -19,15 +20,18 @@
               v-model="answer"
               label="Adicione uma resposta"
               type="textarea"
+              required
             />
-            <label>Categoria</label>
+            <label>Coleção</label>
             <q-select
               rounded
               outlined
               color="teal"
               v-model="option"
               :options="options"
+              multiple
               label="Selecione..."
+              required
             >
             </q-select>
             <q-btn
@@ -43,21 +47,69 @@
 </template>
 
 <script>
+import { Notify } from "quasar";
+import CollectionAPI from "src/services/resources/CollectionAPI";
+import FlashcardAPI from "src/services/resources/FlashCardAPI";
+import CollectionFlashCardAPI from "src/services/resources/FlashCollectionAPI";
 import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "RegisterPage",
   data() {
     return {
-      question: "",
-      answer: "",
-      option: "",
-      options: ["Geral", "Faculdade", "Trabalho", "Concurso"],
+      question: "p1",
+      answer: "R1",
+      option: [{ label: "Geral", value: 1, checked: true }],
+      options: [],
     };
   },
+  mounted() {
+    this.getCollections();
+  },
   methods: {
-    submitForm() {
-      this.$router.push("/home/user/options");
+    async submitForm() {
+      const flashcardAPI = new FlashcardAPI();
+      const collectionFlashCardAPI = new CollectionFlashCardAPI();
+      const flashcard = {
+        question: this.question,
+        answer: this.answer,
+        user_id: 5,
+      };
+      let responseCreatedFlashcard = await flashcardAPI.createFlashcard(
+        flashcard
+      );
+      if (responseCreatedFlashcard.status === 201) {
+        responseCreatedFlashcard = await responseCreatedFlashcard.json();
+        const flashcardId = responseCreatedFlashcard.id;
+        this.option.forEach(async (collection) => {
+          const collectionFlashcard = {
+            flashcard_id: flashcardId,
+            collection_id: collection.value,
+            user_id: 5,
+          };
+
+          await collectionFlashCardAPI.createFlashCardCollection(
+            collectionFlashcard
+          );
+        });
+        Notify.create({
+          message: "Flashcard criado!",
+          position: "top-right",
+          color: "positive",
+          timeout: 2000,
+        });
+      }
+    },
+    async getCollections() {
+      const collectionAPI = new CollectionAPI();
+      const response = await collectionAPI.getCollections();
+      const collections = await response.json();
+      console.log(collections);
+      this.options = collections.map((collection) => ({
+        label: collection.name,
+        value: collection.id,
+        checked: false,
+      }));
     },
   },
 });
