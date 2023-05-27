@@ -37,7 +37,7 @@
             <div class="btn-error">
               <q-btn
                 icon="sentiment_dissatisfied"
-                @click="nextCard"
+                @click="nextCard(false)"
                 :disable="currentIndex === cards.length - 1"
                 label="Errei"
               />
@@ -45,7 +45,7 @@
             <div class="btn-hit">
               <q-btn
                 icon="sentiment_satisfied"
-                @click="nextCard"
+                @click="nextCard(true)"
                 :disable="currentIndex === cards.length - 1"
                 label="Acertei"
               />
@@ -58,39 +58,55 @@
 </template>
 
 <script>
+import FlashcardAPI from "src/services/resources/FlashCardAPI";
 import { defineComponent } from "vue";
 export default defineComponent({
   name: "FlashcardsPage",
   data() {
     return {
       currentIndex: 0,
-      cards: [
-        {
-          frontContent: "De quem é a famosa frase “Penso, logo existo”?",
-          backContent: "Do filósofo francês Descartes.",
-          flipped: false,
-        },
-        {
-          frontContent: "Mais um card aqui",
-          backContent: "Back do card",
-          flipped: false,
-        },
-        {
-          frontContent: "Este é o terceiro card",
-          backContent: "Deu bom. Este é o verso do card",
-          flipped: false,
-        },
-      ],
+      cards: [],
     };
+  },
+  created() {
+    this.getFlashCards();
   },
   methods: {
     flipCard(index) {
       this.cards[index].flipped = !this.cards[index].flipped;
     },
-    nextCard() {
+    nextCard(isCorrect) {
+      const flashcardAPI = new FlashcardAPI();
+      const flashcard = this.cards[this.currentIndex];
+      if (isCorrect) {
+        const flashcardUpdated = {
+          correct_answers: ++flashcard.correct_answers,
+        };
+        flashcardAPI.updateFlashcard(flashcard.id, flashcardUpdated);
+      } else {
+        const flashcardUpdated = {
+          wrong_answers: ++flashcard.wrong_answers,
+        };
+        flashcardAPI.updateFlashcard(flashcard.id, flashcardUpdated);
+      }
       if (this.currentIndex < this.cards.length - 1) {
         this.currentIndex++;
       }
+    },
+    async getFlashCards() {
+      const flashcardAPI = new FlashcardAPI();
+      const response = await flashcardAPI.getFlashcardStudyReview();
+      const flashcards = await response.json();
+      this.cards = flashcards.map((flashcard) => {
+        return {
+          id: flashcard.id,
+          correct_answers: flashcard.correct_answers,
+          wrong_answers: flashcard.wrong_answers,
+          frontContent: flashcard.question,
+          backContent: flashcard.answer,
+          flipped: false,
+        };
+      });
     },
   },
 });

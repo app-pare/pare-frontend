@@ -9,11 +9,11 @@
             label="Nova coleção ou Flashcard"
             @click="goToOptions"
           />
-          <q-card class="my-card" @click="goToStudy">
+          <q-card class="my-card">
             <p class="text-h6">Estudar</p>
             <img src="../assets/estude.png" />
           </q-card>
-          <q-card class="my-card">
+          <q-card class="my-card" @click="goToStudy">
             <p class="text-h6">Revisar</p>
             <img src="../assets/revisao.png" />
           </q-card>
@@ -37,7 +37,7 @@ export default defineComponent({
       this.$router.push("/home/user/options");
     },
     goToStudy() {
-      this.$router.push("/home/user/study");
+      this.$router.push("/home/user/flashcards");
     },
   },
 });

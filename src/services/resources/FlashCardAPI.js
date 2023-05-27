@@ -60,4 +60,24 @@ export default class FlashcardAPI {
       throw error;
     }
   }
+
+  async getFlashcardStudyReview() {
+    try {
+      const flashcard = await this.api.get(`flashcards/study/review`);
+      return flashcard;
+    } catch (error) {
+      console.error("Error:", error);
+      throw error;
+    }
+  }
+
+  async getFlashcardStudyNormal() {
+    try {
+      const flashcard = await this.api.get(`flashcards/study/normal`);
+      return flashcard;
+    } catch (error) {
+      console.error("Error:", error);
+      throw error;
+    }
+  }
 }
