@@ -38,7 +38,6 @@
               <q-btn
                 icon="sentiment_dissatisfied"
                 @click="nextCard(false)"
-                :disable="currentIndex === cards.length - 1"
                 label="Errei"
               />
             </div>
@@ -46,7 +45,6 @@
               <q-btn
                 icon="sentiment_satisfied"
                 @click="nextCard(true)"
-                :disable="currentIndex === cards.length - 1"
                 label="Acertei"
               />
             </div>
@@ -58,6 +56,7 @@
 </template>
 
 <script>
+import { Notify } from "quasar";
 import FlashcardAPI from "src/services/resources/FlashCardAPI";
 import { defineComponent } from "vue";
 export default defineComponent({
@@ -72,6 +71,20 @@ export default defineComponent({
     this.getFlashCards();
   },
   methods: {
+    async deleteFlashcard() {
+      const flashcardAPI = new FlashcardAPI();
+      const flashcard = this.cards[this.currentIndex];
+      const response = await flashcardAPI.deleteFlashcard(flashcard.id);
+      if (response.status === 204) {
+        Notify.create({
+          message: "Flashcard deletado!",
+          position: "top-right",
+          color: "positive",
+          timeout: 2000,
+        });
+        this.cards.splice(this.currentIndex, 1);
+      }
+    },
     flipCard(index) {
       this.cards[index].flipped = !this.cards[index].flipped;
     },
@@ -91,6 +104,8 @@ export default defineComponent({
       }
       if (this.currentIndex < this.cards.length - 1) {
         this.currentIndex++;
+      } else {
+        this.currentIndex = 0;
       }
     },
     async getFlashCards() {
