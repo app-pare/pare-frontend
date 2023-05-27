@@ -3,7 +3,12 @@
     <q-page-container>
       <!-- Header mobile -->
       <q-toolbar class="header-mobile">
-        <q-toolbar-title class="text-center">Bem-vindo(a)!</q-toolbar-title>
+        <q-toolbar-title class="text-center"
+          ><img
+            class="logo-app"
+            src="../assets/logo-pare.svg"
+            alt="Logotipo PARE"
+        /></q-toolbar-title>
       </q-toolbar>
       <div class="router-view-container">
         <router-view />
