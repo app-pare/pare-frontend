@@ -50,9 +50,10 @@ main {
   cursor: pointer;
 
   & img {
-    height: 115px;
+    height: 60px;
     width: auto;
     margin-left: auto;
+    border-radius: 0 !important;
   }
 }
 
