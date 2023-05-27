@@ -11,15 +11,15 @@
           />
           <q-card class="my-card" @click="goToStudy">
             <p class="text-h6">Estudar</p>
-            <img src="../assets/Dictionary-pana.svg" />
+            <img src="../assets/estude.png" />
           </q-card>
           <q-card class="my-card">
             <p class="text-h6">Revisar</p>
-            <img src="../assets/Mobile-note-list-cuate.svg" />
+            <img src="../assets/revisao.png" />
           </q-card>
           <q-card class="my-card">
             <p class="text-h6">Convidar amigos</p>
-            <img src="../assets/Online-world-cuate.svg" />
+            <img src="../assets/apoio-suporte.png" />
           </q-card>
         </div>
       </div>
