@@ -95,18 +95,34 @@ export default defineComponent({
     },
     async getFlashCards() {
       const flashcardAPI = new FlashcardAPI();
-      const response = await flashcardAPI.getFlashcardStudyReview();
-      const flashcards = await response.json();
-      this.cards = flashcards.map((flashcard) => {
-        return {
-          id: flashcard.id,
-          correct_answers: flashcard.correct_answers,
-          wrong_answers: flashcard.wrong_answers,
-          frontContent: flashcard.question,
-          backContent: flashcard.answer,
-          flipped: false,
-        };
-      });
+      const studyNormal = this.$route.query.study_normal || false;
+      if (studyNormal) {
+        const response = await flashcardAPI.getFlashcardStudyNormal();
+        const flashcards = await response.json();
+        this.cards = flashcards.map((flashcard) => {
+          return {
+            id: flashcard.id,
+            correct_answers: flashcard.correct_answers,
+            wrong_answers: flashcard.wrong_answers,
+            frontContent: flashcard.question,
+            backContent: flashcard.answer,
+            flipped: false,
+          };
+        });
+      } else {
+        const response = await flashcardAPI.getFlashcardStudyReview();
+        const flashcards = await response.json();
+        this.cards = flashcards.map((flashcard) => {
+          return {
+            id: flashcard.id,
+            correct_answers: flashcard.correct_answers,
+            wrong_answers: flashcard.wrong_answers,
+            frontContent: flashcard.question,
+            backContent: flashcard.answer,
+            flipped: false,
+          };
+        });
+      }
     },
   },
 });
