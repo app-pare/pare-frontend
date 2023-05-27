@@ -33,7 +33,9 @@
               required
             />
             <q-btn label="Login" type="submit" class="btn full-width" />
-            <div class="text-center"><a>Esqueceu sua senha?</a></div>
+            <div class="text-center cursor-pointer" @click="toRegister">
+              <a>Não tem conta? Registre-se!</a>
+            </div>
           </q-form>
         </div>
       </div>
@@ -50,8 +52,8 @@ export default defineComponent({
   name: "HomePage",
   data() {
     return {
-      username: "darkson@gmail.com",
-      password: "123456789",
+      username: "",
+      password: "",
     };
   },
   methods: {
@@ -71,6 +73,9 @@ export default defineComponent({
           timeout: 2000,
         });
       }
+    },
+    toRegister() {
+      this.$router.push("/register");
     },
   },
 });

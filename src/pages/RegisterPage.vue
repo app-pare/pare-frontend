@@ -7,7 +7,9 @@
             Bem-vindo(a) ao PARE,<br />
             cadastre-se para continuar.
           </h1>
-          <p class="subtitle">Já tem uma conta? <u>Faça seu login</u>.</p>
+          <p class="subtitle" @click="toLogin">
+            Já tem uma conta? <u>Faça seu login</u>.
+          </p>
         </div>
         <div>
           <q-form @submit="submitForm">
@@ -15,17 +17,19 @@
             <q-input
               rounded
               outlined
-              v-model="email"
+              v-model="name"
               label="Digite seu nome"
               type="text"
+              required
             />
             <label>E-mail*</label>
             <q-input
               rounded
               outlined
-              v-model="email"
+              v-model="username"
               label="Digite seu e-mail"
               type="email"
+              required
             />
             <label>Senha*</label>
             <q-input
@@ -34,14 +38,16 @@
               v-model="password"
               label="Digite sua senha"
               type="password"
+              required
             />
             <label>Confirmação de senha<i>*</i></label>
             <q-input
               rounded
               outlined
-              v-model="password"
+              v-model="passwordConfirmation"
               label="Confirme sua senha"
               type="password"
+              required
             />
 
             <q-btn label="Cadastrar" type="submit" class="btn full-width" />
@@ -53,6 +59,8 @@
 </template>
 
 <script>
+import { Notify } from "quasar";
+import UserAPI from "src/services/resources/UserAPI";
 import { defineComponent } from "vue";
 
 export default defineComponent({
@@ -60,13 +68,50 @@ export default defineComponent({
   data() {
     return {
       name: "",
-      email: "",
+      username: "",
       password: "",
+      passwordConfirmation: "",
     };
   },
   methods: {
-    submitForm() {
-      this.$router.push("/home/user");
+    toLogin() {
+      this.$router.push("/");
+    },
+    async submitForm() {
+      if (this.password !== this.passwordConfirmation) {
+        Notify.create({
+          message: "As senhas não coincidem.",
+          position: "top-right",
+          color: "negative",
+          timeout: 2000,
+        });
+        return;
+      }
+
+      const userAPI = new UserAPI();
+      const response = await userAPI.createUser({
+        name: this.name,
+        username: this.username,
+        password: this.password,
+      });
+      if (response.status === 201) {
+        Notify.create({
+          message: "Cadastro criado com sucesso.",
+          position: "top-right",
+          color: "positive",
+          timeout: 2000,
+        });
+        setTimeout(() => {
+          this.$router.push("/");
+        }, 2000);
+      } else {
+        Notify.create({
+          message: "Dados inválidos.",
+          position: "top-right",
+          color: "negative",
+          timeout: 2000,
+        });
+      }
     },
   },
 });
