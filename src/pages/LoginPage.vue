@@ -47,13 +47,14 @@
 import UserAPI from "src/services/resources/UserAPI";
 import { defineComponent } from "vue";
 import { Notify } from "quasar";
+import { useUserStore } from "src/stores/user";
 
 export default defineComponent({
   name: "HomePage",
   data() {
     return {
-      username: "",
-      password: "",
+      username: "darkson@gmail.com",
+      password: "12345678",
     };
   },
   methods: {
@@ -64,6 +65,15 @@ export default defineComponent({
         password: this.password,
       });
       if (response.status === 200) {
+        const user = await response.json();
+        const store = useUserStore();
+        store.setTokenAndUserId(
+          {},
+          {
+            token: user.token,
+            userId: user.user.id,
+          }
+        );
         this.$router.push("/home/user");
       } else {
         Notify.create({

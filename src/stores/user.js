@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-export const useCounterStore = defineStore("counter", {
+export const useUserStore = defineStore("user", {
   state: () => ({
     token: null,
     userId: null,
@@ -23,8 +23,8 @@ export const useCounterStore = defineStore("counter", {
       state.userId = userId;
     },
     setTokenAndUserId({ commit }, { token, userId }) {
-      commit("setToken", token);
-      commit("setUserId", userId);
+      this.setToken(this, token);
+      this.setUserId(this, userId);
     },
   },
 });
