@@ -21,22 +21,14 @@
             height="165px"
             infinite
           >
-            <q-carousel-slide name="collection01">
+            <q-carousel-slide
+              v-for="collection in collections"
+              :key="collection.id"
+              :name="`collection${collection.id}`"
+            >
               <div class="my-colections">
-                <h6>Primeira Coleção</h6>
-                <p>00 flashcards</p>
-              </div>
-            </q-carousel-slide>
-            <q-carousel-slide name="collection02">
-              <div class="my-colections">
-                <h6>Segunda Coleção</h6>
-                <p>00 flashcards</p>
-              </div>
-            </q-carousel-slide>
-            <q-carousel-slide name="collection03">
-              <div class="my-colections">
-                <h6>Terceira Coleção</h6>
-                <p>00 flashcards</p>
+                <h6>{{ collection.name }}</h6>
+                <p>{{ collection.flashcards.length }} flashcards</p>
               </div>
             </q-carousel-slide>
           </q-carousel>
@@ -60,22 +52,13 @@
             height="165px"
             infinite
           >
-            <q-carousel-slide name="flashcard01">
+            <q-carousel-slide
+              v-for="flashcard in flashcards"
+              :key="flashcard.id"
+              :name="`flashcard${flashcard.id}`"
+            >
               <div class="my-colections">
-                <h6>Primeiro Flashcard</h6>
-                <p>Coleção:</p>
-              </div>
-            </q-carousel-slide>
-            <q-carousel-slide name="flashcard02">
-              <div class="my-colections">
-                <h6>Segundo Flashcard</h6>
-                <p>Coleção:</p>
-              </div>
-            </q-carousel-slide>
-            <q-carousel-slide name="flashcard03">
-              <div class="my-colections">
-                <h6>Terceiro Flashcard</h6>
-                <p>Coleção:</p>
+                <h6>{{ flashcard.name }}</h6>
               </div>
             </q-carousel-slide>
           </q-carousel>
@@ -86,7 +69,9 @@
 </template>
 
 <script>
-import { ref, defineComponent } from "vue";
+import CollectionAPI from "src/services/resources/CollectionAPI";
+import FlashcardAPI from "src/services/resources/FlashCardAPI";
+import { defineComponent } from "vue";
 export default defineComponent({
   methods: {
     goToCreateCollection() {
@@ -95,11 +80,53 @@ export default defineComponent({
     goToCreateFlashCard() {
       this.$router.push("/home/user/create/flashcard");
     },
+    async getCollections() {
+      const collectionAPI = new CollectionAPI();
+      const response = await collectionAPI.getCollections();
+      const collections = await response.json();
+      const data = [];
+
+      collections.forEach((collection, index) => {
+        const element = {
+          id: collection.id,
+          name: collection.name,
+          flashcards: [index],
+        };
+        data.push(element);
+      });
+      this.collections = data;
+      if (this.collections.length) {
+        this.slideCollection = `collection${data[0].id}`;
+      }
+    },
+    async getFlashcards() {
+      const flashcardAPI = new FlashcardAPI();
+      const response = await flashcardAPI.getFlashcards();
+      const flashcards = await response.json();
+      const data = [];
+      flashcards.forEach((flashcard) => {
+        const element = {
+          id: flashcard.id,
+          name: flashcard.question,
+        };
+        data.push(element);
+      });
+      this.flashcards = data;
+      if (this.flashcards.length) {
+        this.slideFlashcard = `flashcard${data[0].id}`;
+      }
+    },
   },
-  setup() {
+  async mounted() {
+    await this.getCollections();
+    await this.getFlashcards();
+  },
+  data() {
     return {
-      slideCollection: ref("collection01"),
-      slideFlashcard: ref("flashcard01"),
+      slideCollection: null,
+      slideFlashcard: null,
+      collections: [],
+      flashcards: [],
     };
   },
 });
